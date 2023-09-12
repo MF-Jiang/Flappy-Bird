@@ -25,7 +25,8 @@ public class StartButLis : MonoBehaviour
     private void OnMouseUp()
     {
         transform.localScale = transform.localScale / 0.8f;
-        //SceneManager.LoadScene("game");
+        Player.life = true;
+        ScoreCtrl.score = 0;
         Fadeinandout.changeScene("game");
     }
 }

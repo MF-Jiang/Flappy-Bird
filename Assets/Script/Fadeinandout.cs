@@ -40,6 +40,7 @@ public class Fadeinandout : MonoBehaviour
 
     public static void changeScene(string scene)
     {
+        if(Fadein) Fadein = false;
         FadeOut = true;
         Scene = scene;
     }
