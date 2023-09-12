@@ -8,12 +8,14 @@ public class ScoreCtrl : MonoBehaviour
     public static int score = 0;
     public Text scoreText;
 
+    private AudioSource scoreSource;
     private bool GetStart = false;
 
     // Start is called before the first frame update
     void Start()
     {
         scoreText = GameObject.Find("Canvas/Text").GetComponent<Text>();
+        scoreSource = GetComponent<AudioSource>();  
     }
 
     private void OnGUI()
@@ -25,9 +27,10 @@ public class ScoreCtrl : MonoBehaviour
     {
         if(!GetStart)
         {
-            GetStart = true;
             score++;
+            scoreSource.Play();
         }
+        GetStart = true;
     }
 
 }

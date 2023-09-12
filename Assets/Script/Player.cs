@@ -14,11 +14,17 @@ public class Player : MonoBehaviour
     private GameObject gameover;
 
     private float time;
+
+    private AudioSource asource;
+    public AudioClip crashClip;
+
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        asource = GetComponent<AudioSource>();
         gameover = GameObject.Find("Canvas/Over");
     }
 
@@ -31,12 +37,14 @@ public class Player : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
             {
                 rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+                asource.Play();
             }
         }
         else
         {
             time += Time.deltaTime;
-            if(time > 3)
+
+            if (time > 3)
             {
                 Fadeinandout.changeScene("title");
             }
@@ -50,6 +58,8 @@ public class Player : MonoBehaviour
         if (life)
         {
             Flash.flash();
+            asource.clip = crashClip;
+            asource.Play();
         }
         life = false;
         anim.SetBool("life", false);
