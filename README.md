@@ -15,7 +15,7 @@ Compared to the original version of the game, random obstacles moving up and dow
       <img src="img/2.jpg" alt="2" width="400px">
     </td>
     <td>
-      <img src="img/2.jpg" alt="3" width="400px">
+      <img src="img/3.jpg" alt="3" width="400px">
     </td>
   </tr>
 </table>
